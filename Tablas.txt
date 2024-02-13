@@ -1,0 +1,47 @@
+Sede
+	codigo
+	Nombre
+	Ciudad
+	Direccion
+	Resp_Sede
+	Contacto
+Equipo
+	Serial
+	Nom_Sede
+	Contrato
+	Marca
+	Orden_Interna
+	Cuenta
+	Linea_Marca
+	Modelo
+	Procesador
+	Disco
+	Memoria
+	Software_ad
+	Nombre_Maquina
+	F_Activacion
+	F_Finalizacion
+	Estado
+	Propiedad
+	Tipo_Equipo
+Acta
+	Serial_equipo
+	#Acta
+	Fecha
+	Hora
+	Ananlista_entrega
+	
+Usuario
+	Serial_equipo
+	Nombre
+	Cedula
+	Cargo
+	Area
+	
+Periferico
+	Serial_equipo
+	Tipo
+	Serial
+	Marca
+
+
