@@ -9,7 +9,6 @@ CREATE TABLE sede (
     ciudad varchar(50) not null,
     direccion varchar (100),
     resp_sede varchar(100),
-    contacto varchar(50),
     PRIMARY KEY (codigo)
 );
 
@@ -18,7 +17,7 @@ select * from sede;
 /*crear tabla equipo y llamar todo para comprobar*/
 
 CREATE TABLE equipo(
-	serial_equipo int not null,
+	serial_equipo varchar(50) not null,
 	n_maquina varchar(50),
     estado varchar(50),
     propiedad varchar(50),
