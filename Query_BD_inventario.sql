@@ -61,7 +61,7 @@ CREATE TABLE acta (
 	num_acta int not null,
     fecha date not null,
     hora time,
-    ser_equipo int,
+    ser_equipo varchar(50),
     doc_analista int,
     primary key(num_acta),
     foreign key(ser_equipo) references equipo(serial_equipo),
@@ -77,7 +77,7 @@ CREATE TABLE usuario(
     nombre varchar(100) not null,
     cargo varchar(100) not null,
     area varchar(50),
-    ser_equipo int,
+    ser_equipo varchar(50),
     primary key(documento),
     foreign key(ser_equipo) references equipo(serial_equipo)
 );
@@ -90,7 +90,7 @@ CREATE TABLE periferico(
 	serial_periferico int not null,
     tipo varchar(50) not null,
     marca varchar(50),
-    ser_equipo int,
+    ser_equipo varchar(50),
     primary key (serial_periferico),
     foreign key (ser_equipo) references equipo(serial_equipo)
 );
