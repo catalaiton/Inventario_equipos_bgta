@@ -58,7 +58,7 @@ select * from analista;
 /*crear tabla acta y llamar todo para comprobar*/
 
 CREATE TABLE acta (
-	num_acta int not null,
+	num_acta varchar(50) not null,
     fecha date not null,
     hora time,
     ser_equipo varchar(50),
@@ -87,7 +87,7 @@ select * from usuario;
 /*crear tabla periferico y llamar todo para comprobar*/
 
 CREATE TABLE periferico(
-	serial_periferico int not null,
+	serial_periferico varchar(50) not null,
     tipo varchar(50) not null,
     marca varchar(50),
     ser_equipo varchar(50),
