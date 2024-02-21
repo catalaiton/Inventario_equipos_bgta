@@ -30,6 +30,8 @@ CREATE TABLE equipo(
     procesador varchar(50),
     disco varchar(50),
     memoria varchar(50),
+    maleta varchar(10),
+    guaya varchar(10),
     software_ad varchar(50),
     tipo_equipo varchar(50),
     f_activacion date,
@@ -49,8 +51,10 @@ CREATE TABLE analista (
 	documento int not null,
     nombre Varchar(100) not null,
     cod_sede int,
+    ser_equipo varchar(20),
     primary key(documento),
-    foreign key (cod_sede) references sede(codigo)
+    foreign key (cod_sede) references sede(codigo),
+    foreign key (ser_equipo) references equipo(serial_equipo)
 );
 
 select * from analista;
@@ -89,10 +93,34 @@ select * from usuario;
 CREATE TABLE periferico(
 	serial_periferico varchar(50) not null,
     tipo varchar(50) not null,
-    marca varchar(50),
     ser_equipo varchar(50),
     primary key (serial_periferico),
     foreign key (ser_equipo) references equipo(serial_equipo)
 );
 
 select * from periferico;
+
+/* QUERY para obtener datos principales*/
+
+SELECT 
+	sede.nombre AS sede,
+    equipo.*,
+    usuario.nombre AS usuario_anterior,
+    periferico.serial_periferico, periferico.tipo,
+    acta.num_acta, acta.fecha, acta.hora,
+    analista.documento AS doc_analista, analista.nombre AS nombre_analista,
+    usuario.documento AS doc_usuarioact,usuario.nombre AS usuario, usuario.cargo, usuario.area
+FROM 
+    equipo
+INNER JOIN 
+    usuario ON equipo.serial_equipo = usuario.ser_equipo
+INNER JOIN 
+    usuario AS usuario_ant ON equipo.doc_usuarioant = usuario.documento
+INNER JOIN 
+	sede ON equipo.cod_sede = sede.codigo
+INNER JOIN
+	acta ON equipo.serial_equipo = acta.ser_equipo
+INNER JOIN
+	analista ON equipo.serial_equipo = analista.ser_equipo
+INNER JOIN
+	periferico ON equipo.serial_equipo = periferico.ser_equipo;
