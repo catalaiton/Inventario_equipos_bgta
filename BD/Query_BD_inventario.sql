@@ -17,7 +17,7 @@ select * from sede;
 /*crear tabla equipo y llamar todo para comprobar*/
 
 CREATE TABLE equipo(
-	serial_equipo varchar(50) not null,
+	serial_equipo varchar(100) not null,
 	n_maquina varchar(50),
     estado varchar(50),
     propiedad varchar(50),
@@ -91,7 +91,7 @@ select * from usuario;
 /*crear tabla periferico y llamar todo para comprobar*/
 
 CREATE TABLE periferico(
-	serial_periferico varchar(50) not null,
+	serial_periferico varchar(100) not null,
     tipo varchar(50) not null,
     ser_equipo varchar(50),
     primary key (serial_periferico),
